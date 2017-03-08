@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B72F7BA8-D517-40E6-9870-80C263442627}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sample.Azure.LargeObject.WinForm</RootNamespace>
+    <AssemblyName>Sample.Azure.LargeObject.WinForm</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sample.Azure.Common\Sample.Azure.Common.csproj">
+      <Project>{88579166-d9d3-4dde-afed-4ad956cce73c}</Project>
+      <Name>Sample.Azure.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Config\Sample.Azure.Config.csproj">
+      <Project>{cb739ceb-170c-4453-a3c2-2db245b8b4fa}</Project>
+      <Name>Sample.Azure.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.DI\Sample.Azure.DI.csproj">
+      <Project>{8e9c3ef0-da1c-4057-9e24-edf7062fcb02}</Project>
+      <Name>Sample.Azure.DI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Interface\Sample.Azure.Interface.csproj">
+      <Project>{25e09427-15e0-465d-9f48-99311ebe7786}</Project>
+      <Name>Sample.Azure.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Model\Sample.Azure.Model.csproj">
+      <Project>{66daab98-fcb6-4b0d-ae39-a150effd8aa0}</Project>
+      <Name>Sample.Azure.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Repository.Cache\Sample.Azure.Repository.Cache.csproj">
+      <Project>{c94bc2df-8905-4030-9baf-c897261618d1}</Project>
+      <Name>Sample.Azure.Repository.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Repository.DocumentDB\Sample.Azure.Repository.DocumentDB.csproj">
+      <Project>{08bb7a3a-69a0-4453-a6e7-70888f413641}</Project>
+      <Name>Sample.Azure.Repository.DocumentDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Repository.File\Sample.Azure.Repository.File.csproj">
+      <Project>{02767d36-feaa-4840-ba92-7121f1e79686}</Project>
+      <Name>Sample.Azure.Repository.File</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Repository.Queue\Sample.Azure.Repository.Queue.csproj">
+      <Project>{20a00c1a-28dd-4875-8468-b36167fa9de4}</Project>
+      <Name>Sample.Azure.Repository.Queue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Repository.Search\Sample.Azure.Repository.Search.csproj">
+      <Project>{bb817b7d-84e8-4e12-ad02-4b2aeefd97b8}</Project>
+      <Name>Sample.Azure.Repository.Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Repository.SqlServer\Sample.Azure.Repository.SqlServer.csproj">
+      <Project>{b227e5d8-856d-491c-8316-642fcddbc8c5}</Project>
+      <Name>Sample.Azure.Repository.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Repository.Table\Sample.Azure.Repository.Table.csproj">
+      <Project>{b7d2a156-352f-4c8b-85d1-91f7912ae66b}</Project>
+      <Name>Sample.Azure.Repository.Table</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Azure.Service\Sample.Azure.Service.csproj">
+      <Project>{3fc2f476-7180-44ed-ade5-1a1379fe7814}</Project>
+      <Name>Sample.Azure.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
