@@ -54,7 +54,7 @@ This is how my architecture looks in Azure.  You can see how the Model span all 
 
 I also now use Application Insights for my exception/logging as well as to see the performance of my entire application stack.  You can export your application insights to blob storage for further analysis or for historical purposes.
 
-![alt tag](https://samplebase.blob.core.windows.net/architecture/AdamPaternostroArchitecture.png?st=2017-03-07T14%3A17%3A00Z&se=2025-03-08T14%3A17%3A00Z&sp=rl&sv=2015-12-11&sr=b&sig=1di7%2Bt0nAgIAbkdCN4%2BQssyf1ktos8K6RDMnYSScb88%3D)
+![alt tag](https://raw.githubusercontent.com/AdamPaternostro/Architecture-Azure/master/Azure-Architecture-Diagram.png)
 
 
 
