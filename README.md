@@ -1,13 +1,13 @@
 # Azure-Sample-Web-REST-Architecture
 Sample Azure Architecture that I use on all my personal projects for creating a flexible way to change Azure services without rewriting my business code.  To me, it is clean, easy to debug and easy to know where to put various portions of code.
 
-##Why this Architecture:
+## Why this Architecture
 - It treats each Azure service as a Repository.  I never know if I will be using SQL Server, Azure Table, DocumentDB, etc... and like to adjust my code depending on how things change in the project.  I might start off logging Exceptions to my database and then realized it is cheaper and faster to store them in an Azure table (which takes the load off my database).  Also, Azure is constantly changing and I want to use new features by re-arranging my code (not rewriting)
 - My business tier is pure .NET (or Java) code.  This same architecture can be used in Java.  The architecture is very much centered around organization and not fancy coding techniques.  I don't think much code needs to be complex and breaking complex designs into simple pieces is what I like to do. 
 - I used dependency injection as clean as I can so my repositories can be swapped out with just a one line of code.  I personally think dependency injection can make code hard to read, debug and just painful.  I keep it isolated in this architecture.
 
 
-##Layers of this Architecture
+## Layers of this Architecture
 
 **Frontend Tier(s)** - Web project, Windows service, Console application (some type of "user" interface).  This project should not contain alot of code (except HTML).  You should be able to put "1 line of code" in your console app and the same "1 line of code" in your Windows service.  The line of code should call to your services tier to "start itself".  
 
