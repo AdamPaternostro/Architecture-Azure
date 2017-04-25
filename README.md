@@ -5,6 +5,9 @@ Sample Azure Architecture that I use on all my personal projects for creating a 
 - It treats each Azure service as a Repository.  I never know if I will be using SQL Server, Azure Table, DocumentDB, etc... and like to adjust my code depending on how things change in the project.  I might start off logging Exceptions to my database and then realized it is cheaper and faster to store them in an Azure table (which takes the load off my database).  Also, Azure is constantly changing and I want to use new features by re-arranging my code (not rewriting)
 - My business tier is pure .NET (or Java) code.  This same architecture can be used in Java.  The architecture is very much centered around organization and not fancy coding techniques.  I don't think much code needs to be complex and breaking complex designs into simple pieces is what I like to do. 
 - I used dependency injection as clean as I can so my repositories can be swapped out with just a one line of code.  I personally think dependency injection can make code hard to read, debug and just painful.  I keep it isolated in this architecture.
+- I target PaaS services in Azure.  These services are constantly maturing and expanding their capabilities.  The speed at which you can developed is also greatly enhanced.  Also, my fallback plan can always be IaaS for things like SQL PaaS.
+- You should be able to move your architecture between various services in Azure.  You might start out using Web Apps, decide to use Cloud Services, switch to Docker and/or try Service Fabric.  Moving you code between hosting environments should be "easy" and allow your system to take advantage of services that meet your changing application needs.  
+
 
 
 ## Layers of this Architecture
@@ -18,7 +21,7 @@ Sample Azure Architecture that I use on all my personal projects for creating a 
 **Repository Tier(s)** - This interacts with all 3rd parties (Azure, PDF writers, Databases, etc...)
 
 
-##How this project is setup
+## How this project is setup
 
 I have put a lot of through on how my dependencies are ordered.  This is designed to keep things clean and not circular references.  Please review the references on the projects.
 
@@ -49,12 +52,18 @@ I have put a lot of through on how my dependencies are ordered.  This is designe
 
 **Sample.Azure.UnitTest** - Yes, you should have automated tests.  Plus this provides developers with good samples.  Notice I just call 1 line of code to initialize my system "Sample.Azure.Config.Configuration.Configure();".  This one line of code is my idea of being able to quickly add a new console app, client app, etc.., and be up and running very quick!
 
-##Architecture in Azure
+## Architecture in Azure
 This is how my architecture looks in Azure.  You can see how the Model span all tiers, the Configuration/Common and Interfaces span the various tiers.
 
 I also now use Application Insights for my exception/logging as well as to see the performance of my entire application stack.  You can export your application insights to blob storage for further analysis or for historical purposes.
 
+## How I Get Started
+- I think carefully about how I name my items in Azure.  See https://github.com/AdamPaternostro/Azure-Dual-Region-Deployment-Approach
+- I create all my services in Azure
+- I deploy my Hello World application to all my tiers
+- I implement Security and made sure it works (now I have my secured Hello World)
+- I then setup automatic deployments. 
+- I fix anything in the above list before moving forward.
+- Now I can code fast and confident that my system is secure and easy to deploy
+
 ![alt tag](https://raw.githubusercontent.com/AdamPaternostro/Architecture-Azure/master/Azure-Architecture-Diagram.png)
-
-
-
