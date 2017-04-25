@@ -57,6 +57,8 @@ This is how my architecture looks in Azure.  You can see how the Model span all 
 
 I also now use Application Insights for my exception/logging as well as to see the performance of my entire application stack.  You can export your application insights to blob storage for further analysis or for historical purposes.
 
+![alt tag](https://raw.githubusercontent.com/AdamPaternostro/Architecture-Azure/master/Azure-Architecture-Diagram.png)
+
 ## How I Get Started
 - I think carefully about how I name my items in Azure.  See https://github.com/AdamPaternostro/Azure-Dual-Region-Deployment-Approach
 - I create all my services in Azure
@@ -66,4 +68,3 @@ I also now use Application Insights for my exception/logging as well as to see t
 - I fix anything in the above list before moving forward.
 - Now I can code fast and confident that my system is secure and easy to deploy
 
-![alt tag](https://raw.githubusercontent.com/AdamPaternostro/Architecture-Azure/master/Azure-Architecture-Diagram.png)
